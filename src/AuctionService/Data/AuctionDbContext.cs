@@ -5,7 +5,7 @@ namespace AuctionService.Data;
 
 public class AuctionDbContext : DbContext
 {
-    public AuctionDbContext(DbContextOptions options) : base(options)
+    public AuctionDbContext(DbContextOptions<AuctionDbContext> options) : base(options)
     {
     }
 

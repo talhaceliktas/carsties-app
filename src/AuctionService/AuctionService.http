@@ -1,11 +1,11 @@
 @AuctionService_HostAddress = http://localhost:7001
 @ApiPrefix = /api/v1
 
-// OpenApi Request
-GET {{AuctionService_HostAddress}}/openapi/v1.json
-Accept: application/json
+//
+// Swagger URL
+// {{AuctionService_HostAddress}}/swagger
+//
 
-###
 
 // Get Auctions
 GET {{AuctionService_HostAddress}}{{ApiPrefix}}/auctions
