@@ -69,4 +69,22 @@ public class AuctionsController(AuctionDbContext context, IMapper mapper) : Cont
 
         return Ok("Changes updated successfully.");
     }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> DeleteAuction(Guid id)
+    {
+        var auction = await context.Auctions.FindAsync(id);
+
+        if (auction == null) return NotFound();
+
+        // TODO: Check seller == username
+
+        context.Auctions.Remove(auction);
+
+        var result = await context.SaveChangesAsync() > 0;
+
+        if (!result) return BadRequest("Failed to delete auction in the database.");
+
+        return Ok("Auction successfully deleted.");
+    }
 }
